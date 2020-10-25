@@ -74,6 +74,7 @@ class App extends Component {
   findLyrics(artistlyrics, songlyrics){
         $.get("https://api.lyrics.ovh/v1/"+artistlyrics+"/"+songlyrics,
         function (data){
+          // eslint-disable-next-line
             document.getElementById("output").innerHTML=data.lyrics.replace(new RegExp("\n", "g"),"<br>")
           } 
         )
@@ -87,7 +88,7 @@ class App extends Component {
         <div className="rightside">
         <div id="textarea">
         <div className="AlbumArt">
-          <img src= {this.state.nowPlaying.albumArt} height="300px" width="300px"/>
+          <img src= {this.state.nowPlaying.albumArt} height="300px" width="300px" alt=""/>
         </div>
           <h2> { this.state.nowPlaying.name }</h2>
           <h3> { this.state.nowPlaying.artist }</h3>
