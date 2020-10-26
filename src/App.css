@@ -82,13 +82,19 @@ background-position: 0% 50%
 
 .rightside {
   padding-top: 70px;
-  padding-left: 400px;
+  padding-left: 350px;
   height: 70px;
   position: fixed;
 }
 
 .outputlyrics {
   padding-left: 800px;
-  padding-top: 30px;
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+.outputlyricstext {
+  padding-left: 800px;
+  padding-top: 20px;
   padding-bottom: 30px;
 }
