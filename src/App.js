@@ -89,7 +89,7 @@ class App extends Component {
           } 
         )
 
-        }, 5000)
+        }, 3000)
 }
 
   render() {
