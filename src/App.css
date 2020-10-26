@@ -65,6 +65,11 @@ background-position: 0% 50%
   padding-right: 1000px;
 }
 
+#albumart img {
+  height: 300px;
+  width: 300px;
+}
+
 #textarea h2 {
   padding: 10px;
   padding-right: 1000px;
@@ -97,4 +102,55 @@ background-position: 0% 50%
   padding-left: 800px;
   padding-top: 20px;
   padding-bottom: 30px;
+}
+.getlyricsbuttonmobile{
+  display: none;
+}
+
+@media screen and (max-width: 960px) { 
+
+  .outputlyrics {
+    display: flex;
+    position: absolute;
+    top: 575px;
+    padding-left: 150px;
+  }
+
+  .outputlyricstext {
+    display: flex;
+    position: absolute;
+    top: 700px;
+    padding-left: 150px;
+  }
+
+  .rightside{
+    padding-left: 35px;
+    padding-top: 0px;
+    position: absolute;
+  }
+  
+  .test{
+    min-height: 1000px;
+  }
+
+  Button {
+    display: none;
+  }
+
+  .getlyricsbuttonmobile{
+      display: block;
+      text-align: center;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      border-radius: 4px;
+      width: 200px;
+      background: #4ad9e4;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.5rem;
+      
+  }
+
+  
+
 }

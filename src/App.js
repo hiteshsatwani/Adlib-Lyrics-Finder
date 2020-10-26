@@ -69,11 +69,15 @@ class App extends Component {
         });
       })
         
-      }, 1000);      
+      }, 5000);      
     }
 
-  findLyrics(artistlyrics, songlyrics){
-        $.get("https://api.lyrics.ovh/v1/"+artistlyrics+"/"+songlyrics,
+  findLyrics(){
+        setInterval(() => {
+
+          console.log("ok")
+
+          $.get("https://api.lyrics.ovh/v1/"+this.state.nowPlaying.artist+"/"+this.state.nowPlaying.name,
         function (data){
           // eslint-disable-next-line
           if(document.getElementById("output").innerHTML !== data.lyrics.replace(new RegExp("\n", "g"),"<br>")){
@@ -84,29 +88,28 @@ class App extends Component {
         }
           } 
         )
+
+        }, 5000)
 }
 
   render() {
     return (
-      <div className="App" >
-        <div className={this.state.animationClass} onLoad={() => this.getNowPlaying()}>
+      <div className="App" onLoad={() => this.getNowPlaying()} >
+        <div className={this.state.animationClass} >
         <Navbar />
         <div className="rightside">
         <div id="textarea">
-        <div className="AlbumArt">
-          <img src= {this.state.nowPlaying.albumArt} height="300px" width="300px" alt=""/>
+        <div className="AlbumArt" id="albumart">
+          <img src= {this.state.nowPlaying.albumArt} alt=""/>
         </div>
           <h2> { this.state.nowPlaying.name }</h2>
           <h3> { this.state.nowPlaying.artist }</h3>
         </div>
         <div className="GetLyrics" >
-        { this.state.loggedIn &&
-       
-        <Button onClick={() => this.findLyrics(this.state.nowPlaying.artist, this.state.nowPlaying.name)} > Get Lyrics </Button>
+        <Button onClick={() => this.findLyrics()}>Start Lyrics</Button>
+        </div>
+        </div>
         
-        }
-        </div>
-        </div>
         <div className="outputlyrics"><h2> Lyrics </h2></div>
         
         <div id="output" className="outputlyricstext">no data</div>
