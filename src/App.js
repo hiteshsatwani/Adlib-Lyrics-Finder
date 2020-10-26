@@ -75,8 +75,10 @@ class App extends Component {
   findLyrics(artistlyrics, songlyrics){
         $.get("https://api.lyrics.ovh/v1/"+artistlyrics+"/"+songlyrics,
         function (data){
+          // eslint-disable-next-line
           if(document.getElementById("output").innerHTML !== data.lyrics.replace(new RegExp("\n", "g"),"<br>")){
             if(data.lyrics !== ""){
+              // eslint-disable-next-line
             document.getElementById("output").innerHTML = data.lyrics.replace(new RegExp("\n", "g"),"<br>")
           } 
         }
