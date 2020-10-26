@@ -25,7 +25,7 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
-                <a href="http://localhost:8888"><Button>< i className="fab fa-spotify"></i> Login To Spotify </Button></a>
+                <a href="http://jovial-allen-eca069.netlify.app:8888"><Button>< i className="fab fa-spotify"></i> Login To Spotify </Button></a>
             </nav>
         )
     }

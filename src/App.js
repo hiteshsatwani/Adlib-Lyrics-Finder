@@ -8,11 +8,12 @@ import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
 
 
-class App extends Component {
+class App extends Component {  
   constructor(){
     super();
     const params = this.getHashParams();
     const token = params.access_token;
+
 
 
     if (token) {
