@@ -112,15 +112,16 @@ background-position: 0% 50%
   .outputlyrics {
     display: flex;
     position: absolute;
-    top: 575px;
+    top: 640px;
     padding-left: 150px;
   }
 
   .outputlyricstext {
     display: flex;
     position: absolute;
-    top: 700px;
+    top: 790px;
     padding-left: 150px;
+    text-align: center;
   }
 
   .rightside{
@@ -131,25 +132,12 @@ background-position: 0% 50%
   
   .test{
     min-height: 1000px;
+    height: auto;
   }
 
-  Button {
-    display: none;
-  }
+  
 
-  .getlyricsbuttonmobile{
-      display: block;
-      text-align: center;
-      padding: 1.5rem;
-      margin: 2rem auto;
-      border-radius: 4px;
-      width: 200px;
-      background: #4ad9e4;
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.5rem;
-      
-  }
+
 
   
 
