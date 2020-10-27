@@ -1,0 +1,13 @@
+footer{
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    
+}
+
+.footer h1 {
+    font-size: 12px;
+    padding-top: 20px;
+}

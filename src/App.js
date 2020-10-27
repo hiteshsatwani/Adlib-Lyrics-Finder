@@ -1,126 +1,58 @@
 import React, { Component } from 'react';
 import Navbar from "./components/Navbar/Navbar"
-import $ from "jquery"
+import LandingSection from "./components/landing-section/landing-section"
+import Dashboard from "./components/dashboard/dashboard"
+import DashboardBlurred from "./components/dashboard/dashboard-blurred"
+import Footer from "./components/Footer/footer"
 import './App.css';
-import {Button} from "./components/Button"
+
 
 import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
 
 
-class App extends Component {  
-  constructor(){
+class App extends Component {
+
+  constructor() {
     super();
     const params = this.getHashParams();
     const token = params.access_token;
-
-
 
     if (token) {
       spotifyApi.setAccessToken(token);
     }
     this.state = {
       loggedIn: token ? true : false,
-      nowPlaying: { name: 'Nothing Playing', albumArt: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', artist: 'Nothing Playing' },
-      animationClass: 'test',
-      currentlyplaying: 'empty'
-    }
-    this.changeState = this.changeState.bind(this);
-  }
-
-  changeState(){
-    if(this.state.animationClass === 'test'){
-      this.setState({
-        animationClass: 'test paused'
-      });
-    }else{
-      this.setState({
-        animationClass: 'test'
-      });
     }
   }
-
 
   getHashParams() {
-    var hashParams = {};
-    var e, r = /([^&;=]+)=?([^&;]*)/g,
-        q = window.location.hash.substring(1);
-    e = r.exec(q)
-    while (e) {
-       hashParams[e[1]] = decodeURIComponent(e[2]);
-       e = r.exec(q);
-    }
-    return hashParams;
-  }
-
-  getNowPlaying(){
-
-    
-      setInterval(() => {
-
-        spotifyApi.getMyCurrentPlaybackState()
-      .then((response) => {
-        this.setState({
-          nowPlaying: { 
-              name: response.item.name,
-              artist: response.item.artists[0].name, 
-              albumArt: response.item.album.images[0].url
-            }
-        });
-      })
-        
-      }, 5000);      
-    }
-
-  findLyrics(){
-        setInterval(() => {
-
-          console.log("ok")
-
-          $.get("https://api.lyrics.ovh/v1/"+this.state.nowPlaying.artist+"/"+this.state.nowPlaying.name,
-        function (data){
-          // eslint-disable-next-line
-          if(document.getElementById("output").innerHTML !== data.lyrics.replace(new RegExp("\n", "g"),"<br>")){
-            if(data.lyrics !== ""){
-              // eslint-disable-next-line
-            document.getElementById("output").innerHTML = data.lyrics.replace(new RegExp("\n", "g"),"<br>")
-          } 
+        var hashParams = {};
+        var e, r = /([^&;=]+)=?([^&;]*)/g,
+            q = window.location.hash.substring(1);
+        e = r.exec(q)
+        while (e) {
+            hashParams[e[1]] = decodeURIComponent(e[2]);
+            e = r.exec(q);
         }
-          } 
-        )
-
-        }, 3000)
-}
+        return hashParams;
+    }
 
   render() {
     return (
-      <div className="App" onLoad={() => this.getNowPlaying()} >
-        <div className={this.state.animationClass} >
+      <div className="App">
         <Navbar />
-        <div className="rightside">
-        <div id="textarea">
-        <div className="AlbumArt" id="albumart">
-          <img src= {this.state.nowPlaying.albumArt} alt=""/>
-        </div>
-          <h2> { this.state.nowPlaying.name }</h2>
-          <h3> { this.state.nowPlaying.artist }</h3>
-        </div>
-        <div className="GetLyrics" >
-        <Button onClick={() => this.findLyrics()}>Start Lyrics</Button>
-        </div>
-        </div>
-        
-        <div className="outputlyrics"><h2> Lyrics </h2></div>
-        
-        <div id="output" className="outputlyricstext">no data</div>
-        </div>
-        
+        <LandingSection />
+        {this.state.loggedIn && <Dashboard />}
+        {!this.state.loggedIn && <DashboardBlurred />}
+        <Footer/>
+
       </div>
-      
+
     );
   }
 
-  
+
 }
 
 export default App;
