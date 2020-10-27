@@ -64,7 +64,7 @@
     .nav-menu{
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 700px;
         height: 300px;
         position: absolute;
         top: 80px;
@@ -108,7 +108,7 @@
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
         cursor: pointer;
-        margin-top: 10px;
+        margin-top: 15px;
     }
 
     .fa-times {
@@ -134,5 +134,8 @@
         transition: 250ms;
     }
 
+    .login-button-nav {
+        margin-left: 20px;
+    }
 
 }

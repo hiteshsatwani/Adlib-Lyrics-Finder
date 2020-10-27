@@ -25,7 +25,10 @@ class Navbar extends Component {
                         )
                     })}
                 </ul>
+                <div className="login-button-nav">
                 <a href="https://spotify-auth-adlib.herokuapp.com/login"><Button>< i className="fab fa-spotify"></i> Login To Spotify </Button></a>
+                </div>
+                
             </nav>
         )
     }
