@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from '../Button';
 import './dashboard.css';
 import $ from "jquery"
 
