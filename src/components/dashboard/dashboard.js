@@ -76,8 +76,6 @@ class Dashboard extends Component {
     findLyrics() {
         setInterval(() => {
 
-            console.log("ok")
-
             $.get("https://api.lyrics.ovh/v1/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
                 function (data) {
                     // eslint-disable-next-line
@@ -97,7 +95,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard"  onLoad={() => this.getNowPlaying()} >
-                <div className={this.state.animationClass} >
+                <div className={this.state.animationClass} onLoad={() => this.findLyrics()} > 
                     <div className="rightside">
                         <div id="textarea">
                             <div className="AlbumArt" id="albumart">
@@ -106,9 +104,7 @@ class Dashboard extends Component {
                             <h2> {this.state.nowPlaying.name}</h2>
                             <h3> {this.state.nowPlaying.artist}</h3>
                         </div>
-                        <div className="GetLyrics" >
-                            <Button onClick={() => this.findLyrics()}>Start Lyrics</Button>
-                        </div>
+
                     </div>
 
                     <div className="outputlyrics"><h2> Lyrics </h2></div>

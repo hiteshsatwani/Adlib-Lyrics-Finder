@@ -1,5 +1,5 @@
 .test {
-    width: 100wh;
+    width: 100%;
     height: auto;
     min-height: 800px;
     color: #fff;
@@ -81,7 +81,7 @@
     padding-top: 70px;
     padding-left: 350px;
     height: 70px;
-    position: relative;
+    position: fx;
   }
   
   .outputlyrics {
