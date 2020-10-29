@@ -138,11 +138,11 @@ class Dashboard extends Component {
                     
                     <div className="similar-artists" id="similar-artists">
                         <h2> Similar Artists </h2>
-                            <img src={this.state.relatedArtist.img}></img>
-                            <h3><a href={this.state.relatedArtist.url}>{this.state.relatedArtist.name}</a></h3>
-                            <img src={this.state.relatedArtist.img2}></img>
+                            <img src={this.state.relatedArtist.img} alt=""></img>
+                            <h3><a href={this.state.relatedArtist.url} >{this.state.relatedArtist.name}</a></h3>
+                            <img src={this.state.relatedArtist.img2} alt=""></img>
                             <h3> <a href={this.state.relatedArtist.url2}>{this.state.relatedArtist.name2}</a></h3>
-                            <img src={this.state.relatedArtist.img3}></img>
+                            <img src={this.state.relatedArtist.img3} alt=""></img>
                             <h3> <a href={this.state.relatedArtist.url3}>{this.state.relatedArtist.name3}</a></h3>
                     </div>
                     </div>
