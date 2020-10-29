@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from "./components/Navbar/Navbar"
 import LandingSection from "./components/landing-section/landing-section"
 import Dashboard from "./components/dashboard/dashboard"
-import DashboardBlurred from "./components/dashboard/dashboard-blurred"
+import DashboardBlurred from "./components/dashboard-blurred/dashboard-blurred"
 import Footer from "./components/Footer/footer"
 import './App.css';
 

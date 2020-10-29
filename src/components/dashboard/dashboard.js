@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './dashboard.css';
-import $ from "jquery"
+import $ from "jquery";
 
 
 
@@ -16,12 +16,14 @@ class Dashboard extends Component {
 
 
 
+
         if (token) {
             spotifyApi.setAccessToken(token);
         }
         this.state = {
             loggedIn: token ? true : false,
-            nowPlaying: { name: 'Nothing Playing', albumArt: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', artist: 'Nothing Playing' },
+            nowPlaying: { name: 'Nothing Playing', albumArt: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', artist: 'Nothing Playing', albumName: 'None', artistId: '' },
+            relatedArtist: { name: '', img: '', url:'', name2: '', img2: '', url2: '', name3: '', img3: '', url3:'' },
             animationClass: 'test',
             currentlyplaying: 'empty'
         }
@@ -53,23 +55,50 @@ class Dashboard extends Component {
         return hashParams;
     }
 
+    getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+
+
     getNowPlaying() {
 
 
         setInterval(() => {
-
             spotifyApi.getMyCurrentPlaybackState()
                 .then((response) => {
                     this.setState({
                         nowPlaying: {
                             name: response.item.name,
                             artist: response.item.artists[0].name,
-                            albumArt: response.item.album.images[0].url
+                            albumArt: response.item.album.images[0].url,
+                            albumName: response.item.album.name,
+                            artistId: response.item.artists[0].id
                         }
-                    });
+                    })
                 })
 
         }, 5000);
+
+        setInterval(() => {
+            spotifyApi.getArtistRelatedArtists(this.state.nowPlaying.artistId)
+                .then((response) => {
+                    this.setState({
+                        relatedArtist: {
+                            name: response.artists[0].name,
+                            img: response.artists[0].images[1].url,
+                            url: response.artists[0].external_urls.spotify,
+                            name2: response.artists[1].name,
+                            img2: response.artists[1].images[1].url,
+                            url2: response.artists[1].external_urls.spotify,
+                            name3: response.artists[2].name,
+                            img3: response.artists[2].images[1].url,
+                            url3: response.artists[2].external_urls.spotify
+                        }
+                    })
+                })
+        }, 5000);
+
+
     }
 
     findLyrics() {
@@ -93,17 +122,29 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div className="dashboard"  onLoad={() => this.getNowPlaying()} >
-                <div className={this.state.animationClass} onLoad={() => this.findLyrics()} > 
+            <div className="dashboard" onLoad={() => this.getNowPlaying()} >
+                <div className={this.state.animationClass} onLoad={() => this.findLyrics()} >
                     <div className="rightside">
                         <div id="textarea">
                             <div className="AlbumArt" id="albumart">
                                 <img src={this.state.nowPlaying.albumArt} alt="" />
                             </div>
                             <h2> {this.state.nowPlaying.name}</h2>
-                            <h3> {this.state.nowPlaying.artist}</h3>
+                            <h3> {this.state.nowPlaying.artist} </h3>
+                            <h3> {this.state.nowPlaying.albumName} </h3>
+                            <br></br><br></br><br></br><br></br>
                         </div>
-
+                    
+                    
+                    <div className="similar-artists" id="similar-artists">
+                        <h2> Similar Artists </h2>
+                            <img src={this.state.relatedArtist.img}></img>
+                            <h3><a href={this.state.relatedArtist.url}>{this.state.relatedArtist.name}</a></h3>
+                            <img src={this.state.relatedArtist.img2}></img>
+                            <h3> <a href={this.state.relatedArtist.url2}>{this.state.relatedArtist.name2}</a></h3>
+                            <img src={this.state.relatedArtist.img3}></img>
+                            <h3> <a href={this.state.relatedArtist.url3}>{this.state.relatedArtist.name3}</a></h3>
+                    </div>
                     </div>
 
                     <div className="outputlyrics"><h2> Lyrics </h2></div>

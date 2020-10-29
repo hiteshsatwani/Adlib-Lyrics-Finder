@@ -1,8 +1,9 @@
 
+
 .test {
     width: auto;
     height: auto;
-    min-height: 800px;
+    min-height: 1600px;
     color: #fff;
     background: linear-gradient(-45deg, #8A18ED, #0047BF  , #8A18ED, #0047BF);
     background-size: 400% 400%;
@@ -70,7 +71,7 @@
   }
   #textarea h3 {
     padding-top: 5px;
-    padding-bottom: 50px;
+    padding-bottom: 5px;
     padding-right: 1000px;
   }
   
@@ -80,10 +81,10 @@
   }
   
   .rightside {
-    padding-top: 70px;
+    padding-top: 0px;
     padding-left: 350px;
     height: 70px;
-    position: fixed;
+    position: absolute;
   }
   
   .outputlyrics {
@@ -100,6 +101,38 @@
   .getlyricsbuttonmobile{
     display: none;
   }
+  .similar-artists img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+  }
+  
+  .similar-artists h2 {
+    margin-bottom: 50px;
+    text-decoration: none;
+  }
+
+  #similar-artists h3 {
+    margin-bottom: 30px;
+    text-decoration: none;
+  }
+
+  .similar-artists{
+    padding-right: 1000px;
+    padding-top: 0px;
+    text-decoration: none;
+    color: white;
+
+  }
+  .artist-1{
+    margin-bottom: 50px;
+  }
+  .artist-2 {
+  
+  }
+
+
+  
   
   @media screen and (max-width: 960px) { 
   
