@@ -1,7 +1,9 @@
+
 .front-section{
     height: 1000px;
     background: black;
     padding-top: 150px;
+    
 }
 
 .front-section Button{
@@ -14,6 +16,10 @@
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
+}
+
+.mobile-button Button{
+    margin-left: 180px;
 }
 
 .front-section Button{

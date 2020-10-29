@@ -1,5 +1,7 @@
+
+
 .test-blur {
-    width: 100%;
+    width: auto;
     height: auto;
     min-height: 225px;
     color: #fff;
@@ -8,7 +10,7 @@
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
-
+    
     }
   
 

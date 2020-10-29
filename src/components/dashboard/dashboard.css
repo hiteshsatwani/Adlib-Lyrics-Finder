@@ -1,5 +1,6 @@
+
 .test {
-    width: 100%;
+    width: auto;
     height: auto;
     min-height: 800px;
     color: #fff;
@@ -8,6 +9,7 @@
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
+    
     }
   
   .paused {
@@ -81,7 +83,7 @@
     padding-top: 70px;
     padding-left: 350px;
     height: 70px;
-    position: fx;
+    position: fixed;
   }
   
   .outputlyrics {
@@ -102,9 +104,8 @@
   @media screen and (max-width: 960px) { 
   
     .outputlyrics {
-      display: flex;
-      position: absolute;
-      top: 640px;
+
+      padding-top: 640px;
       padding-left: 150px;
     }
   
@@ -118,7 +119,7 @@
   
     .rightside{
       padding-left: 35px;
-      padding-top: 0px;
+      padding-top: 300px;
       position: absolute;
     }
     
