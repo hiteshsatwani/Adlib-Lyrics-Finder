@@ -18,9 +18,6 @@
     animation: Gradient 15s ease infinite;
 }
 
-.mobile-button Button{
-    margin-left: 180px;
-}
 
 .front-section Button{
     animation: fadeIn ease 10s;
