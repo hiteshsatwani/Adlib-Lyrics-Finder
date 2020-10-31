@@ -54,25 +54,24 @@
   }
   }
   
-  .AlbumArt {
-    padding-top: 100px;
-    padding-bottom: 40px;
-    padding-right: 1000px;
-  }
+
   
   #albumart img {
     height: 300px;
     width: 300px;
   }
-  
-  #textarea h2 {
-    padding: 10px;
+
+  .textarea{
+    padding-top: 100px;
     padding-right: 1000px;
   }
-  #textarea h3 {
+  
+  .textarea h2 {
+    padding: 10px;
+  }
+  .textarea h3 {
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-right: 1000px;
   }
   
   .GetLyrics {
@@ -137,28 +136,29 @@
   @media screen and (max-width: 960px) { 
   
     .outputlyrics {
-
-      padding-top: 640px;
-      padding-left: 150px;
+      padding-top: 600px;
+      padding-bottom: 10px;
+      padding-left: 0px;
     }
   
     .outputlyricstext {
       display: flex;
-      position: absolute;
-      top: 790px;
-      padding-left: 150px;
+      position: relative;
+      padding-left: 0px;
       text-align: center;
+      padding: 20px 5px;
+      overflow: auto;
     }
   
     .rightside{
-      padding-left: 35px;
-      padding-top: 300px;
+      padding-left: 37px;
+      width: auto;
       position: absolute;
     }
     
     .test{
-      min-height: 1000px;
       height: auto;
+      position: relative;
     }
 
     .dashboard-blurred {
@@ -168,7 +168,18 @@
       -ms-filter: blur(5px);
       filter: blur(5px);
     }
+
+    .similar-artists{
+      display: none;
+    }
     
+    .textarea{
+      width: auto;
+
+      padding-right: 0;
+    }
+
+
   
     
   

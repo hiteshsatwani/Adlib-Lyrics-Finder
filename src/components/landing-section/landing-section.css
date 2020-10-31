@@ -3,19 +3,23 @@
     height: 1000px;
     background: black;
     padding-top: 150px;
-    
 }
 
 .front-section Button{
-    margin-right: 1090px;
     padding: 12px 12px;
-    margin-top: 100px;
     font-size: 15pt;
     background: linear-gradient(45deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
     background-size: 400% 400%;
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
+    float: left;
+    margin-top: 80px;
+}
+
+.title-button-container {
+    padding-left: 300px;
+    display: block;
 }
 
 
@@ -27,7 +31,6 @@
 .title h3 {
     font-size: 90px;
     text-align: left;
-    margin-left: 300px;
     line-height: 130px;
     background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
     background-size: 400% 400%;
@@ -36,7 +39,6 @@
     animation: Gradient 15s ease infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    
 
 }
 
@@ -44,6 +46,7 @@
     animation: fadeIn ease 10s;
     -webkit-animation: fadeIn ease 4s;
 }
+
 
 @keyframes fadeIn {
     0% {opacity:0;}
@@ -117,13 +120,18 @@
         }
 
         .front-section{
-            height: 1000px;
+            height: 900px;
             background: black;
             padding-top: 50px;
         }
 
         .mobile-button Button {
             margin-left: 50px;
-            padding: 10px 80px;
+            padding: 10px 50px;
         }
+        .title-button-container {
+            padding-left: 0px;
+            display: block;
+        }
+
       }

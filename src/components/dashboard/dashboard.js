@@ -115,6 +115,8 @@ class Dashboard extends Component {
                     }
                 }
             )
+            
+
 
         }, 3000)
     }
@@ -125,11 +127,11 @@ class Dashboard extends Component {
             <div className="dashboard" onLoad={() => this.getNowPlaying()} >
                 <div className={this.state.animationClass} onLoad={() => this.findLyrics()} >
                     <div className="rightside">
-                        <div id="textarea">
+                        <div className="textarea">
                             <div className="AlbumArt" id="albumart">
                                 <img src={this.state.nowPlaying.albumArt} alt="" />
                             </div>
-                            <h2> {this.state.nowPlaying.name}</h2>
+                            <h2>{this.state.nowPlaying.name}</h2>
                             <h3> {this.state.nowPlaying.artist} </h3>
                             <h3> {this.state.nowPlaying.albumName} </h3>
                             <br></br><br></br><br></br><br></br>
@@ -147,7 +149,7 @@ class Dashboard extends Component {
                     </div>
                     </div>
 
-                    <div className="outputlyrics"><h2> Lyrics </h2></div>
+                    <a id="dashboard"></a><div className="outputlyrics"><h2> Lyrics </h2></div>
 
                     <div id="output" className="outputlyricstext">no data</div>
                 </div>
