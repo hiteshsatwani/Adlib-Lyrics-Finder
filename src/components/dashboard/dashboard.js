@@ -151,7 +151,7 @@ class Dashboard extends Component {
                     {/* eslint-disable-next-line */}
                     <a id="dashboard"><div className="outputlyrics"><h2> Lyrics </h2></div></a>
 
-                    <div id="output" className="outputlyricstext">no data</div>
+                    <div id="output" className="outputlyricstext"></div>
                 </div>
             </div>
         )

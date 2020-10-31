@@ -112,11 +112,12 @@
 
       @media screen and (max-width: 960px) { 
         .title h3 {
-            margin-left: 7.5px;
+            
             font-size: 60px;
             line-height: 100px;
             padding-top: 10px;
             text-align: center;
+            float: center;
         }
 
         .front-section{
@@ -126,11 +127,11 @@
         }
 
         .mobile-button Button {
-            margin-left: 50px;
+            margin-left: 35px;
             padding: 10px 50px;
         }
         .title-button-container {
-            padding-left: 0px;
+            padding: 5px;
             display: block;
         }
 
