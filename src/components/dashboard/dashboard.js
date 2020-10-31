@@ -148,8 +148,8 @@ class Dashboard extends Component {
                             <h3> <a href={this.state.relatedArtist.url3}>{this.state.relatedArtist.name3}</a></h3>
                     </div>
                     </div>
-
-                    <a id="dashboard"></a><div className="outputlyrics"><h2> Lyrics </h2></div>
+                    {/* eslint-disable-next-line */}
+                    <a id="dashboard"><div className="outputlyrics"><h2> Lyrics </h2></div></a>
 
                     <div id="output" className="outputlyricstext">no data</div>
                 </div>
