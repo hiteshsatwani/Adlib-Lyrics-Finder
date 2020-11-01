@@ -42,6 +42,20 @@
 
 }
 
+.title-comingsoon h3 {
+    font-size: 90px;
+    text-align: center;
+    line-height: 130px;
+    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-top: 400px;
+}
+
 .title{
     animation: fadeIn ease 10s;
     -webkit-animation: fadeIn ease 4s;

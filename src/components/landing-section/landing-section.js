@@ -36,7 +36,7 @@ class LandingSection extends Component {
             <div className="front-section">
                 <div className="title-button-container">
                 <div className="title">
-                    <h3>Get The Lyric,</h3>
+                    <h3>Get The Lyrics,</h3>
                     <h3>For The Song Your,</h3>
                     <h3>Listening To Instanly.</h3>
                 </div>
