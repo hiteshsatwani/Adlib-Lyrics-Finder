@@ -61,7 +61,7 @@ class Dashboard extends Component {
 
 
     getNowPlaying() {
-        let currentlyplaying;
+        
 
 
         setInterval(() => {
@@ -81,7 +81,7 @@ class Dashboard extends Component {
         }, 5000);
 
         setInterval(() => {
-            if (this.state.nowPlaying.name != 'Nothing Playing') {
+            if (this.state.nowPlaying.name !== 'Nothing Playing') {
                 spotifyApi.getArtistRelatedArtists(this.state.nowPlaying.artistId)
                     .then((response) => {
                         this.setState({
