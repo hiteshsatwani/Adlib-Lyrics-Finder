@@ -23,7 +23,7 @@ class Dashboard extends Component {
         this.state = {
             loggedIn: token ? true : false,
             nowPlaying: { name: 'Nothing Playing', albumArt: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', artist: 'Nothing Playing', albumName: 'None', artistId: '' },
-            relatedArtist: { name: '', img: '', url:'', name2: '', img2: '', url2: '', name3: '', img3: '', url3:'' },
+            relatedArtist: { name: '', img: '', url: '', name2: '', img2: '', url2: '', name3: '', img3: '', url3: '' },
             animationClass: 'test',
             currentlyplaying: 'empty'
         }
@@ -61,6 +61,7 @@ class Dashboard extends Component {
 
 
     getNowPlaying() {
+        let currentlyplaying;
 
 
         setInterval(() => {
@@ -80,22 +81,24 @@ class Dashboard extends Component {
         }, 5000);
 
         setInterval(() => {
-            spotifyApi.getArtistRelatedArtists(this.state.nowPlaying.artistId)
-                .then((response) => {
-                    this.setState({
-                        relatedArtist: {
-                            name: response.artists[0].name,
-                            img: response.artists[0].images[1].url,
-                            url: response.artists[0].external_urls.spotify,
-                            name2: response.artists[1].name,
-                            img2: response.artists[1].images[1].url,
-                            url2: response.artists[1].external_urls.spotify,
-                            name3: response.artists[2].name,
-                            img3: response.artists[2].images[1].url,
-                            url3: response.artists[2].external_urls.spotify
-                        }
+            if (this.state.nowPlaying.name != 'Nothing Playing') {
+                spotifyApi.getArtistRelatedArtists(this.state.nowPlaying.artistId)
+                    .then((response) => {
+                        this.setState({
+                            relatedArtist: {
+                                name: response.artists[0].name,
+                                img: response.artists[0].images[1].url,
+                                url: response.artists[0].external_urls.spotify,
+                                name2: response.artists[1].name,
+                                img2: response.artists[1].images[1].url,
+                                url2: response.artists[1].external_urls.spotify,
+                                name3: response.artists[2].name,
+                                img3: response.artists[2].images[1].url,
+                                url3: response.artists[2].external_urls.spotify
+                            }
+                        })
                     })
-                })
+            }
         }, 5000);
 
 
@@ -103,7 +106,6 @@ class Dashboard extends Component {
 
     findLyrics() {
         setInterval(() => {
-
             $.get("https://api.lyrics.ovh/v1/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
                 function (data) {
                     // eslint-disable-next-line
@@ -115,9 +117,6 @@ class Dashboard extends Component {
                     }
                 }
             )
-            
-
-
         }, 3000)
     }
 
@@ -136,17 +135,17 @@ class Dashboard extends Component {
                             <h3> {this.state.nowPlaying.albumName} </h3>
                             <br></br><br></br><br></br><br></br>
                         </div>
-                    
-                    
-                    <div className="similar-artists" id="similar-artists">
-                        <h2> Similar Artists </h2>
+
+
+                        <div className="similar-artists" id="similar-artists">
+                            <h2> Similar Artists </h2>
                             <img src={this.state.relatedArtist.img} alt=""></img>
                             <h3><a href={this.state.relatedArtist.url} >{this.state.relatedArtist.name}</a></h3>
                             <img src={this.state.relatedArtist.img2} alt=""></img>
                             <h3> <a href={this.state.relatedArtist.url2}>{this.state.relatedArtist.name2}</a></h3>
                             <img src={this.state.relatedArtist.img3} alt=""></img>
                             <h3> <a href={this.state.relatedArtist.url3}>{this.state.relatedArtist.name3}</a></h3>
-                    </div>
+                        </div>
                     </div>
                     {/* eslint-disable-next-line */}
                     <a id="dashboard"><div className="outputlyrics"><h2> Lyrics </h2></div></a>
