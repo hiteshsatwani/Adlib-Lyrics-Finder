@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-
+import Navbar from "./components/Navbar/Navbar"
+import LandingSection from "./components/landing-section/landing-section"
+import Dashboard from "./components/dashboard/dashboard"
+import DashboardBlurred from "./components/dashboard-blurred/dashboard-blurred"
+import Footer from "./components/Footer/footer"
 import './App.css';
-import './components/coming-soon'
 
 
 import SpotifyWebApi from 'spotify-web-api-js';
-import ComingSoon from './components/coming-soon';
 const spotifyApi = new SpotifyWebApi();
 
 
@@ -39,7 +41,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ComingSoon />
+        <Navbar />
+        <LandingSection />
+        {this.state.loggedIn && <Dashboard />}
+        {!this.state.loggedIn && <DashboardBlurred />}
+        <Footer/>
 
       </div>
 
