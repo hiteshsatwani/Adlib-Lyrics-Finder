@@ -1,0 +1,75 @@
+.top10{
+    background: black;
+    min-height: 500px;
+    height: auto;
+}
+
+.title-container h2{
+    font-size: 60px;
+    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-container h3{
+    padding-top: 20px;
+    font-size: 20px;
+    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-container{
+    padding-top: 50px;
+}
+
+.artist-list h2{
+    color: white;
+    padding-top: 20px;
+}
+
+.artist-list img{
+    height: 200px;
+}
+
+.artist-list{
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.artist-grid{
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 50px;
+    list-style: none;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+
+}
+
+.top10 Button {
+    margin-bottom: 100px;
+}
+
+
+@media screen and (max-width: 960px) { 
+
+    .artist-grid{
+        grid-template-columns: repeat(2, auto);
+        grid-gap: 20px;
+    }
+
+    .artist-list img {
+        height: 150px;
+    }
+
+}

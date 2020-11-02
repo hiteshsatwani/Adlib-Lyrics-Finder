@@ -5,9 +5,11 @@ import Dashboard from "./components/dashboard/dashboard"
 import DashboardBlurred from "./components/dashboard-blurred/dashboard-blurred"
 import Footer from "./components/Footer/footer"
 import './App.css';
+import Top10artists from "./components/Top 10/top10"
 
 
 import SpotifyWebApi from 'spotify-web-api-js';
+
 const spotifyApi = new SpotifyWebApi();
 
 
@@ -45,8 +47,8 @@ class App extends Component {
         <LandingSection />
         {this.state.loggedIn && <Dashboard />}
         {!this.state.loggedIn && <DashboardBlurred />}
+        {this.state.loggedIn && <Top10artists />}
         <Footer/>
-
       </div>
 
     );

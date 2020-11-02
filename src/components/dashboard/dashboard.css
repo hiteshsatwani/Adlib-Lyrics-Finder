@@ -3,7 +3,7 @@
 .test {
     width: auto;
     height: auto;
-    min-height: 1600px;
+    min-height: 1200px;
     color: #fff;
     background: linear-gradient(-45deg, #8A18ED, #0047BF  , #8A18ED, #0047BF);
     background-size: 400% 400%;
@@ -59,29 +59,48 @@
   #albumart img {
     height: 300px;
     width: 300px;
+    border-radius: 50px;
   }
 
   .textarea{
-    padding-top: 100px;
-    padding-right: 1000px;
+    width: 355px;
+    height: auto;
+    max-height: auto;
+    padding-top: 15px;
+    border: 15px solid white;
+    border-radius: 60px;
+    background: white;
+    position: relative;
+    margin-top: 80px;
   }
   
   .textarea h2 {
-    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .textarea h3 {
     padding-top: 5px;
-    padding-bottom: 5px;
+    color: black;
+    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
+
   
-  .GetLyrics {
-    padding-bottom: 20px;
-    padding-right: 1000px;
-  }
-  
-  .rightside {
+  .leftside {
     padding-top: 0px;
-    padding-left: 350px;
+    padding-left: 300px;
     height: 70px;
     position: absolute;
   }
@@ -95,7 +114,7 @@
   .outputlyricstext {
     padding-left: 800px;
     padding-top: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 100px;
   }
   .getlyricsbuttonmobile{
     display: none;
@@ -107,27 +126,50 @@
   }
   
   .similar-artists h2 {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     text-decoration: none;
+    color: black;
   }
 
-  #similar-artists h3 {
+  #similar-artists a {
     margin-bottom: 30px;
     text-decoration: none;
+    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .similar-artists{
-    padding-right: 1000px;
     padding-top: 0px;
     text-decoration: none;
-    color: white;
+    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .similar-artist-container{
+    width: 300px;
+    height: 370px;
+    max-height: auto;
+    padding-top: 15px;
+    border: 15px solid white;
+    border-radius: 60px;
+    background: white;
+    position: relative;
+    margin-top: 80px;
 
   }
-  .artist-1{
-    margin-bottom: 50px;
-  }
-  .artist-2 {
-  
+
+  .similar-artist-wrapper{
+    margin-left: 20px;
   }
 
 
@@ -136,7 +178,7 @@
   @media screen and (max-width: 960px) { 
   
     .outputlyrics {
-      padding-top: 600px;
+      padding-top: 650px;
       padding-bottom: 10px;
       padding-left: 0px;
     }
@@ -150,10 +192,15 @@
       overflow: auto;
     }
   
-    .rightside{
-      padding-left: 37px;
+    .leftside{
+      padding-left: 23px;
+      padding-top: 0px;
       width: auto;
       position: absolute;
+    }
+
+    .similar-artist-container{
+      display: none;
     }
     
     .test{
@@ -178,13 +225,4 @@
 
       padding-right: 0;
     }
-
-
-  
-    
-  
-  
-  
-    
-  
   }

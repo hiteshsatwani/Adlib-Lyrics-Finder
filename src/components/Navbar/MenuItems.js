@@ -5,12 +5,12 @@ export const MenuItems = [
         cName: 'nav-links'
     },
     {
-        title: 'Find Lyrics',
-        url: '#',
+        title: 'Lyrics Dashboard',
+        url: '#dashboard',
         cName: 'nav-links'
     },
     {
-        title: 'About Us',
+        title: 'Top 10 Artists',
         url: '#',
         cName: 'nav-links'
     },

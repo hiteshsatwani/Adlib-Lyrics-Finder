@@ -61,7 +61,7 @@ class Dashboard extends Component {
 
 
     getNowPlaying() {
-        
+
 
 
         setInterval(() => {
@@ -87,14 +87,8 @@ class Dashboard extends Component {
                         this.setState({
                             relatedArtist: {
                                 name: response.artists[0].name,
-                                img: response.artists[0].images[1].url,
+                                img: response.artists[0].images[0].url,
                                 url: response.artists[0].external_urls.spotify,
-                                name2: response.artists[1].name,
-                                img2: response.artists[1].images[1].url,
-                                url2: response.artists[1].external_urls.spotify,
-                                name3: response.artists[2].name,
-                                img3: response.artists[2].images[1].url,
-                                url3: response.artists[2].external_urls.spotify
                             }
                         })
                     })
@@ -125,7 +119,7 @@ class Dashboard extends Component {
         return (
             <div className="dashboard" onLoad={() => this.getNowPlaying()} >
                 <div className={this.state.animationClass} onLoad={() => this.findLyrics()} >
-                    <div className="rightside">
+                    <div className="leftside">
                         <div className="textarea">
                             <div className="AlbumArt" id="albumart">
                                 <img src={this.state.nowPlaying.albumArt} alt="" />
@@ -136,21 +130,24 @@ class Dashboard extends Component {
                             <br></br><br></br><br></br><br></br>
                         </div>
 
-
-                        <div className="similar-artists" id="similar-artists">
-                            <h2> Similar Artists </h2>
-                            <img src={this.state.relatedArtist.img} alt=""></img>
-                            <h3><a href={this.state.relatedArtist.url} >{this.state.relatedArtist.name}</a></h3>
-                            <img src={this.state.relatedArtist.img2} alt=""></img>
-                            <h3> <a href={this.state.relatedArtist.url2}>{this.state.relatedArtist.name2}</a></h3>
-                            <img src={this.state.relatedArtist.img3} alt=""></img>
-                            <h3> <a href={this.state.relatedArtist.url3}>{this.state.relatedArtist.name3}</a></h3>
+                        <div className="similar-artist-wrapper">
+                            <div className="similar-artist-container">
+                                <div className="similar-artists" id="similar-artists">
+                                    <h2> Similar Artist </h2>
+                                    <img src={this.state.relatedArtist.img} alt=""></img>
+                                    <h3><a href={this.state.relatedArtist.url}>{this.state.relatedArtist.name}</a></h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    {/* eslint-disable-next-line */}
-                    <a id="dashboard"><div className="outputlyrics"><h2> Lyrics </h2></div></a>
 
-                    <div id="output" className="outputlyricstext"></div>
+                    <div className="lyrics-wrapper">
+                        <div className="lyrics-container">
+                            {/* eslint-disable-next-line */}
+                            <a id="dashboard"><div className="outputlyrics"><h2> Lyrics </h2></div></a>
+                            <div id="output" className="outputlyricstext"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
