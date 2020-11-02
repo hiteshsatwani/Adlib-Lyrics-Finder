@@ -178,7 +178,7 @@
   @media screen and (max-width: 960px) { 
   
     .outputlyrics {
-      padding-top: 650px;
+      padding-top: 550px;
       padding-bottom: 10px;
       padding-left: 0px;
     }
@@ -221,8 +221,15 @@
     }
     
     .textarea{
-      width: auto;
+      background: transparent;
+      border: none;
+    }
 
-      padding-right: 0;
+    .textarea h3{
+      -webkit-text-fill-color: white;
+    }
+    .textarea h2{
+      color: white;
+      -webkit-text-fill-color: white;
     }
   }
