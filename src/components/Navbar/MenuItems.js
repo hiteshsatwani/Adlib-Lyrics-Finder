@@ -11,7 +11,7 @@ export const MenuItems = [
     },
     {
         title: 'Top 10 Artists',
-        url: '#',
+        url: '#top',
         cName: 'nav-links'
     },
 

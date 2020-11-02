@@ -72,7 +72,8 @@ class Top10artists extends Component {
     render() {
         return (
             <div className="top10">
-                <div className="title-container">
+                {/* eslint-disable-next-line */}
+                <a id="top"></a> <div className="title-container">
                     <h2>Your Top 10 Artists</h2>
                     <h3>Here are your top 10 artists of all time</h3>
                 </div>
