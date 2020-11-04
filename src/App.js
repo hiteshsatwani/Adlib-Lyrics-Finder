@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from "./components/Navbar/Navbar"
 import LandingSection from "./components/landing-section/landing-section"
-import Dashboard from "./components/dashboard/dashboard"
 import DashboardBlurred from "./components/dashboard-blurred/dashboard-blurred"
 import Footer from "./components/Footer/footer"
 import './App.css';
@@ -45,7 +44,6 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <LandingSection />
-        {this.state.loggedIn && <Dashboard />}
         {!this.state.loggedIn && <DashboardBlurred />}
         {this.state.loggedIn && <Top10artists />}
         <Footer/>
