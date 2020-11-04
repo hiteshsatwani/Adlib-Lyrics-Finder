@@ -36,9 +36,9 @@ class LandingSection extends Component {
             <div className="front-section">
                 <div className="title-button-container">
                 <div className="title">
-                    <h3>Get Your Top 10,</h3>
-                    <h3>Artists Instanly,</h3>
-                    <h3>Only at Adlib.</h3>
+                    <h3>Get The Lyrics,</h3>
+                    <h3>For The Song Your,</h3>
+                    <h3>Listening To Instanly.</h3>
                 </div>
                 <div className="mobile-button">
                 {this.state.loggedIn && <Button ><a href="#dashboard"> Go To Dashboard </a> </Button>}
