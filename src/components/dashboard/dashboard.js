@@ -24,8 +24,7 @@ class Dashboard extends Component {
             loggedIn: token ? true : false,
             nowPlaying: { name: 'Nothing Playing', albumArt: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', artist: 'Nothing Playing', albumName: 'None', artistId: '' },
             relatedArtist: { name: '', img: '', url: '', name2: '', img2: '', url2: '', name3: '', img3: '', url3: '' },
-            animationClass: 'test',
-            currentlyplaying: 'empty'
+            animationClass: 'test'
         }
         this.changeState = this.changeState.bind(this);
     }
@@ -117,6 +116,7 @@ class Dashboard extends Component {
 
     render() {
         return (
+        
             <div className="dashboard" onLoad={() => this.getNowPlaying()} >
                 <div className={this.state.animationClass} onLoad={() => this.findLyrics()} >
                     <div className="leftside">
