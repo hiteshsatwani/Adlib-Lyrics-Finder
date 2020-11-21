@@ -3,7 +3,6 @@ import './dashboard.css';
 import $ from "jquery";
 
 
-
 import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
 
@@ -15,6 +14,8 @@ class Dashboard extends Component {
         const token = params.access_token;
 
 
+        
+
 
 
         if (token) {
@@ -23,7 +24,7 @@ class Dashboard extends Component {
         this.state = {
             loggedIn: token ? true : false,
             nowPlaying: { name: 'Nothing Playing', albumArt: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', artist: 'Nothing Playing', albumName: 'None', artistId: '' },
-            relatedArtist: { name: '', img: '', url: '', name2: '', img2: '', url2: '', name3: '', img3: '', url3: '' },
+            relatedArtist: { name: '', img: '', url: '', name2: '', img2: '', url2: '', name3: '', img3: '', url3: '', playing: false },
             animationClass: 'test'
         }
         this.changeState = this.changeState.bind(this);
@@ -60,9 +61,6 @@ class Dashboard extends Component {
 
 
     getNowPlaying() {
-
-
-
         setInterval(() => {
             spotifyApi.getMyCurrentPlaybackState()
                 .then((response) => {
@@ -88,6 +86,7 @@ class Dashboard extends Component {
                                 name: response.artists[0].name,
                                 img: response.artists[0].images[0].url,
                                 url: response.artists[0].external_urls.spotify,
+                                playing: true
                             }
                         })
                     })
@@ -98,6 +97,7 @@ class Dashboard extends Component {
     }
 
     findLyrics() {
+
         setInterval(() => {
             $.get("https://api.lyrics.ovh/v1/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
                 function (data) {
@@ -115,8 +115,9 @@ class Dashboard extends Component {
 
 
     render() {
-        return (
-        
+        return ( 
+ 
+             
             <div className="dashboard" onLoad={() => this.getNowPlaying()} >
                 <div className={this.state.animationClass} onLoad={() => this.findLyrics()} >
                     <div className="leftside">
@@ -150,6 +151,7 @@ class Dashboard extends Component {
                     </div>
                 </div>
             </div>
+        
         )
     }
 }
