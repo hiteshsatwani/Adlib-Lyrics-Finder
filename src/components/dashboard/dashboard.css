@@ -1,235 +1,91 @@
+.dashboard{
+  min-height: 1200px;
+  background-color: #fff;
+  height: auto;
+  overflow: auto;
+  display: flex;
+}
 
+.leftside {
+  min-width: 50%;
+  min-height: 1200px;
+  height: inherit;
+  float: left;
+  
+  background: linear-gradient(-45deg, #8A18ED, #0047BF  , #8A18ED, #0047BF);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+}
 
-.test {
-    width: auto;
-    height: auto;
+.songinfo {
+  color: white;
+  float: center;
+  padding-top: 100px;
+}
+
+.songinfo h2{
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+.songinfo h3{
+  padding: 5px;
+}
+
+#albumart img {
+  height: 300px;
+  width: 300px;
+}
+.recommended{
+  padding-top: 80px;
+}
+.recommended img{
+  height: 200px;
+  width: 200px;
+}
+.recommended h2{
+  padding-bottom: 50px;
+  color: white;
+}
+.recommended h3{
+  color: white;
+  padding: 10px;
+  padding-bottom: 50px;
+}
+.rightside{
+    background-color: black;
+    float: right;
+    width: 50%;
     min-height: 1200px;
-    color: #fff;
-    background: linear-gradient(-45deg, #8A18ED, #0047BF  , #8A18ED, #0047BF);
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
-    
-    }
-  
-  .paused {
-    -webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
-    animation-play-state: paused;
-  }
-  
-  @-webkit-keyframes Gradient {
-    0% {
-    background-position: 0% 50%
-    }
-  50% {
-  background-position: 100% 50%
-  }
-  100% {
-  background-position: 0% 50%
-  }
-  }
-  
-  @-moz-keyframes Gradient {
-    0% {
-    background-position: 0% 50%
-    }
-  50% {
-  background-position: 100% 50%
-  }
-  100% {
-  background-position: 0% 50%
-  }
-  }
-  
-  @keyframes Gradient {
-    0% {
-    background-position: 0% 50%
-    }
-  50% {
-  background-position: 100% 50%
-  }
-  100% {
-  background-position: 0% 50%
-  }
-  }
-  
-
-  
-  #albumart img {
-    height: 300px;
-    width: 300px;
-    border-radius: 50px;
-  }
-
-  .textarea{
-    width: 355px;
     height: auto;
-    max-height: auto;
-    padding-top: 15px;
-    border: 15px solid white;
-    border-radius: 60px;
-    background: white;
-    position: relative;
-    margin-top: 80px;
-  }
+    border:5px solid;
+    border-color:white;
+}
+.lyrics h2{
+  color: white;
+  padding-top: 100px;
+}
+.outputlyricstext{
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
   
-  .textarea h2 {
-    padding-top: 20px;
-    padding-bottom: 10px;
-    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .textarea h3 {
-    padding-top: 5px;
-    color: black;
-    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+}
 
-  
-  .leftside {
-    padding-top: 0px;
-    padding-left: 300px;
-    height: 70px;
+@media screen and (max-width: 960px) { 
+  .rightside{
+    width: 100%;
+    float: none;
+    padding-top: 950px;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .leftside{
+    width: 100%;
     position: absolute;
+    min-height: 1000px;
   }
-  
-  .outputlyrics {
-    padding-left: 800px;
-    padding-top: 100px;
-    padding-bottom: 30px;
-  }
-  
-  .outputlyricstext {
-    padding-left: 800px;
-    padding-top: 20px;
-    padding-bottom: 100px;
-  }
-  .getlyricsbuttonmobile{
-    display: none;
-  }
-  .similar-artists img {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 10px;
-  }
-  
-  .similar-artists h2 {
-    margin-bottom: 40px;
-    text-decoration: none;
-    color: black;
-  }
-
-  #similar-artists a {
-    margin-bottom: 30px;
-    text-decoration: none;
-    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .similar-artists{
-    padding-top: 0px;
-    text-decoration: none;
-    background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .similar-artist-container{
-    width: 300px;
-    height: 370px;
-    max-height: auto;
-    padding-top: 15px;
-    border: 15px solid white;
-    border-radius: 60px;
-    background: white;
-    position: relative;
-    margin-top: 80px;
-
-  }
-
-  .similar-artist-wrapper{
-    margin-left: 20px;
-  }
-
-
-  
-  
-  @media screen and (max-width: 960px) { 
-  
-    .outputlyrics {
-      padding-top: 550px;
-      padding-bottom: 10px;
-      padding-left: 0px;
-    }
-  
-    .outputlyricstext {
-      display: flex;
-      position: relative;
-      padding-left: 0px;
-      text-align: center;
-      padding: 20px 5px;
-      overflow: auto;
-    }
-  
-    .leftside{
-      padding-left: 10px;
-      padding-top: 0px;
-      width: auto;
-      position: absolute;
-    }
-
-    .similar-artist-container{
-      display: none;
-    }
-    
-    .test{
-      height: auto;
-      position: relative;
-    }
-
-    .dashboard-blurred {
-      -webkit-filter: blur(5px);
-      -moz-filter: blur(5px);
-      -o-filter: blur(5px);
-      -ms-filter: blur(5px);
-      filter: blur(5px);
-    }
-
-    .similar-artists{
-      display: none;
-    }
-    
-    .textarea{
-      background: transparent;
-      border: none;
-    }
-
-    .textarea h3{
-      -webkit-text-fill-color: white;
-    }
-    .textarea h2{
-      color: white;
-      -webkit-text-fill-color: white;
-    }
-  }
+}

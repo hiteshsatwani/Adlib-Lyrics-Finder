@@ -14,7 +14,7 @@ class Dashboard extends Component {
         const token = params.access_token;
 
 
-        
+
 
 
 
@@ -24,7 +24,7 @@ class Dashboard extends Component {
         this.state = {
             loggedIn: token ? true : false,
             nowPlaying: { name: 'Nothing Playing', albumArt: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', artist: 'Nothing Playing', albumName: 'None', artistId: '' },
-            relatedArtist: { name: '', img: '', url: '', name2: '', img2: '', url2: '', name3: '', img3: '', url3: '', playing: false },
+            relatedArtist: { name: 'Nothing Yet', img: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', url: '', name2: '', img2: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', url2: '', name3: '', img3: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', url3: '', playing: false },
             animationClass: 'test'
         }
         this.changeState = this.changeState.bind(this);
@@ -115,43 +115,36 @@ class Dashboard extends Component {
 
 
     render() {
-        return ( 
- 
-             
+        return (
+
             <div className="dashboard" onLoad={() => this.getNowPlaying()} >
-                <div className={this.state.animationClass} onLoad={() => this.findLyrics()} >
-                    <div className="leftside">
-                        <div className="textarea">
-                            <div className="AlbumArt" id="albumart">
-                                <img src={this.state.nowPlaying.albumArt} alt="" />
-                            </div>
-                            <h2>{this.state.nowPlaying.name}</h2>
-                            <h3> {this.state.nowPlaying.artist} </h3>
-                            <h3> {this.state.nowPlaying.albumName} </h3>
-                            <br></br><br></br><br></br><br></br>
-                        </div>
 
-                        <div className="similar-artist-wrapper">
-                            <div className="similar-artist-container">
-                                <div className="similar-artists" id="similar-artists">
-                                    <h2> Similar Artist </h2>
-                                    <img src={this.state.relatedArtist.img} alt=""></img>
-                                    <h3><a href={this.state.relatedArtist.url}>{this.state.relatedArtist.name}</a></h3>
-                                </div>
-                            </div>
+                <div className="leftside" onLoad={() => this.findLyrics()}>
+                    <div className="songinfo">
+                        <div id="albumart">
+                            <img src={this.state.nowPlaying.albumArt} alt="" />
                         </div>
+                        <h2>{this.state.nowPlaying.name}</h2>
+                        <h3> {this.state.nowPlaying.artist} </h3>
+                        <h3> {this.state.nowPlaying.albumName} </h3>
                     </div>
-
-                    <div className="lyrics-wrapper">
-                        <div className="lyrics-container">
-                            {/* eslint-disable-next-line */}
-                            <a id="dashboard"><div className="outputlyrics"><h2> Lyrics </h2></div></a>
-                            <div id="output" className="outputlyricstext"></div>
-                        </div>
+                    <div className="recommended">
+                        <h2> Similar Artists </h2>
+                        <img src={this.state.relatedArtist.img} alt=""></img>
+                        <a href={this.state.relatedArtist.url}><h3>{this.state.relatedArtist.name}</h3></a>
+                    </div>
+                </div>
+                <div className="rightside">
+                    <div className="lyrics">
+                        {/* eslint-disable-next-line */}
+                        <a id="dashboard"><h2> Lyrics </h2></a>
+                        <div id="output" className="outputlyricstext">Nothing Yet</div>
                     </div>
                 </div>
             </div>
-        
+
+
+
         )
     }
 }
