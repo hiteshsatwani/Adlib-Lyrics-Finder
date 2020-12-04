@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ideasio/add-to-homescreen-react": "^1.0.4",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -12,6 +13,7 @@
     "genius-lyrics-api": "^3.0.3",
     "jquery": "^3.5.1",
     "lyrics-finder": "^21.4.0",
+    "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-css-blur": "^1.1.1",
     "react-dom": "^17.0.1",

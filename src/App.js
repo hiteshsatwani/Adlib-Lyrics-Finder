@@ -6,6 +6,7 @@ import DashboardBlurred from "./components/dashboard-blurred/dashboard-blurred"
 import Footer from "./components/Footer/footer"
 import './App.css';
 import Top10artists from "./components/Top 10/top10"
+import AddToHomeScreen from './components/AddToHomeScreen'
 
 
 import SpotifyWebApi from 'spotify-web-api-js';
@@ -43,6 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <AddToHomeScreen />
         <Navbar />
         <LandingSection />
         {this.state.loggedIn && <Dashboard />}
