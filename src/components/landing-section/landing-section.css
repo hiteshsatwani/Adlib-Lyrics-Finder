@@ -13,12 +13,12 @@
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
-    float: left;
+    float: center;
     margin-top: 80px;
 }
 
 .title-button-container {
-    padding-left: 300px;
+    
     display: block;
 }
 
@@ -30,7 +30,7 @@
 
 .title h3 {
     font-size: 120px;
-    text-align: left;
+    text-align: center;
     line-height: 170px;
     background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
     background-size: 400% 400%;
@@ -145,7 +145,6 @@
         }
 
         .mobile-button Button {
-            margin-left: 45px;
             padding: 10px 50px;
         }
         .title-button-container {
