@@ -28,27 +28,29 @@ class App extends Component {
     }
   }
 
+
   getHashParams() {
-        var hashParams = {};
-        var e, r = /([^&;=]+)=?([^&;]*)/g,
-            q = window.location.hash.substring(1);
-        e = r.exec(q)
-        while (e) {
-            hashParams[e[1]] = decodeURIComponent(e[2]);
-            e = r.exec(q);
-        }
-        return hashParams;
+    var hashParams = {};
+    var e, r = /([^&;=]+)=?([^&;]*)/g,
+      q = window.location.hash.substring(1);
+    e = r.exec(q)
+    while (e) {
+      hashParams[e[1]] = decodeURIComponent(e[2]);
+      e = r.exec(q);
     }
+    return hashParams;
+  }
 
   render() {
     return (
       <div className="App">
+
         <Navbar />
         <LandingSection />
         {this.state.loggedIn && <Dashboard />}
         {!this.state.loggedIn && <DashboardBlurred />}
         {this.state.loggedIn && <Top10artists />}
-        <Footer/>
+        <Footer />
       </div>
 
     );

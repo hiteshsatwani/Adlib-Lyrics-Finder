@@ -13,12 +13,12 @@
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
-    float: left;
+    float: center;
     margin-top: 80px;
 }
 
 .title-button-container {
-    padding-left: 300px;
+    
     display: block;
 }
 
@@ -29,9 +29,9 @@
 }
 
 .title h3 {
-    font-size: 90px;
-    text-align: left;
-    line-height: 130px;
+    font-size: 120px;
+    text-align: center;
+    line-height: 170px;
     background: linear-gradient(90deg, #8A18ED, #6568F4, #8A18ED, #6568F4);
     background-size: 400% 400%;
     -webkit-animation: Gradient 15s ease infinite;
@@ -53,7 +53,7 @@
     animation: Gradient 15s ease infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding-top: 400px;
+
 }
 
 .title{
@@ -139,13 +139,12 @@
         }
 
         .front-section{
-            height: 900px;
+            height: 600px;
             background: black;
             padding-top: 50px;
         }
 
         .mobile-button Button {
-            margin-left: 45px;
             padding: 10px 50px;
         }
         .title-button-container {
