@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './top10.css';
 import SpotifyWebApi from 'spotify-web-api-js';
-import { Button } from '../Button';
+
 const spotifyApi = new SpotifyWebApi();
 
 class Top10artists extends Component {
@@ -71,7 +71,7 @@ class Top10artists extends Component {
 
     render() {
         return (
-            <div className="top10">
+            <div className="top10" onLoad={() => this.getTop10()}>
                 {/* eslint-disable-next-line */}
                 <a id="top"></a> <div className="title-container">
                     <h2>Your Top 10 Artists</h2>
@@ -122,7 +122,7 @@ class Top10artists extends Component {
 
                     </ul>
                 </div>
-                <Button onClick={() => this.getTop10()}>Get Your Top 10</Button>
+                
             </div>
         )
     }
