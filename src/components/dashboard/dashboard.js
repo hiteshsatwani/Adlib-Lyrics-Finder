@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import './dashboard.css';
-
-import song from "@allvaa/get-lyrics"
-
-
 import SpotifyWebApi from 'spotify-web-api-js';
-// eslint-disable-next-line
+import $ from "jquery"
+
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -173,10 +170,19 @@ class Dashboard extends Component {
     }
 
     findLyrics() {
-        (async () => {
-            const result = await song(this.state.nowPlaying.name);
-            console.log(result); // returns Song object
-        })();
+       
+        $.get("https://api.lyrics.ovh/v1/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
+        function (data) {
+            // eslint-disable-next-line
+            if (document.getElementById("output").innerHTML !== data.lyrics.replace(new RegExp("\n", "g"), "<br>")) {
+                if (data.lyrics !== "") {
+                    // eslint-disable-next-line
+                    document.getElementById("output").innerHTML = data.lyrics.replace(new RegExp("\n", "g"), "<br>")
+                    console.log("success")
+                }
+            }
+        }
+    )
     }
 
 
