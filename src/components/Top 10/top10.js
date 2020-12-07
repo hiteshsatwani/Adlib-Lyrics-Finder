@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './top10.css';
 import SpotifyWebApi from 'spotify-web-api-js';
-import { Button } from '../Button';
+
 const spotifyApi = new SpotifyWebApi();
 
 class Top10artists extends Component {
