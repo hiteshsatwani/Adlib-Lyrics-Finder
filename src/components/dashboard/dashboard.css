@@ -130,14 +130,18 @@
 
   }
 
+  .albumgrid h2{
+    font-size: 15px;
+  }
+
   .albumgrid img {
     height: 150px;
     width: 150px;
   }
 
   .albumgrid{
-    grid-gap: 5px;
-    
+    grid-gap: 30px;
+    align-items: center;
   }
 
   .nomobile{

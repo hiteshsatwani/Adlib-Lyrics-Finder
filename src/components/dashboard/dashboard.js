@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './dashboard.css';
-import $ from "jquery";
+
+import song from "@allvaa/get-lyrics"
 
 
 import SpotifyWebApi from 'spotify-web-api-js';
 // eslint-disable-next-line
-import { Button } from '../Button';
+
 const spotifyApi = new SpotifyWebApi();
 
 
@@ -151,36 +152,31 @@ class Dashboard extends Component {
         setInterval(() => {
             spotifyApi.getMyCurrentPlaybackState()
                 .then((response) => {
-                    this.setState({
-                        nowPlaying: {
-                            name: response.item.name,
-                            artist: response.item.artists[0].name,
-                            albumArt: response.item.album.images[0].url,
-                            albumName: response.item.album.name,
-                            artistId: response.item.artists[0].id,
-                            clicked: response.is_playing
-                        }
-                    })
+                    if(response.item.name !== this.state.nowPlaying.name){
+                        this.setState({
+                            nowPlaying: {
+                                name: response.item.name,
+                                artist: response.item.artists[0].name,
+                                albumArt: response.item.album.images[0].url,
+                                albumName: response.item.album.name,
+                                artistId: response.item.artists[0].id,
+                                clicked: response.is_playing
+                            }
+                        })
+
+                        this.findLyrics()
+                    }
+                    
                 })
 
         }, 5000);
     }
 
     findLyrics() {
-
-        setInterval(() => {
-            $.get("https://api.lyrics.ovh/v1/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
-                function (data) {
-                    // eslint-disable-next-line
-                    if (document.getElementById("output").innerHTML !== data.lyrics.replace(new RegExp("\n", "g"), "<br>")) {
-                        if (data.lyrics !== "") {
-                            // eslint-disable-next-line
-                            document.getElementById("output").innerHTML = data.lyrics.replace(new RegExp("\n", "g"), "<br>")
-                        }
-                    }
-                }
-            )
-        }, 3000)
+        (async () => {
+            const result = await song(this.state.nowPlaying.name);
+            console.log(result); // returns Song object
+        })();
     }
 
 
@@ -189,7 +185,7 @@ class Dashboard extends Component {
 
             <div className="dashboard" onLoad={() => this.getNowPlaying()}>
 
-                <div className="leftside" onLoad={() => this.findLyrics()}>
+                <div className="leftside">
                     <div className="songinfo">
                         <div id="albumart">
                             <img src={this.state.nowPlaying.albumArt} alt="" />
