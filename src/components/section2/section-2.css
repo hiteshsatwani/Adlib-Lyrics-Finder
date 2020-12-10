@@ -1,0 +1,87 @@
+.section2{
+    height: 850px;
+ background-color: black;
+ display: flex;
+}
+
+.image2{
+    position: absolute;
+    padding-top: 100px;
+    padding-left: 1200px;
+    animation: fadeIn ease 10s;
+    -webkit-animation: fadeIn ease 5s;
+}
+
+
+.text2 {
+    float: left;
+    width: 100%;
+    padding-top: 300px;
+    padding-left: 200px;
+  
+}
+.text2 h3 {
+    color: white;
+    text-align: left;
+    font-size:  50px;
+    animation: fadeIn ease 10s;
+    -webkit-animation: fadeIn ease 5s;
+}
+.text2 h4 {
+    color: white;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 200;
+    animation: fadeIn ease 10s;
+    -webkit-animation: fadeIn ease 7s;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+
+    .text2 Button{
+        margin-top: 50px;
+        float: left;
+        padding: 12px 12px;
+        animation: fadeIn ease 10s;
+    -webkit-animation: fadeIn ease 7s;
+    background: white;
+    color: black;
+
+    }
+
+    .text2 Button:hover{
+        
+        padding: 12px 12px;
+        animation: fadeIn ease 10s;
+        -webkit-animation: fadeIn ease 7s;
+
+    }
+
+    @media screen and (max-width: 960px) { 
+        .section2{
+            display: none;
+            }
+        }

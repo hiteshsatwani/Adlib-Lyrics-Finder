@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar/Navbar"
 import LandingSection from "./components/landing-section/landing-section"
 import Dashboard from "./components/dashboard/dashboard"
 import DashboardBlurred from "./components/dashboard-blurred/dashboard-blurred"
+import Section1 from "./components/section1/section-1"
+import Section2 from "./components/section2/section-2"
 import Footer from "./components/Footer/footer"
 import './App.css';
 import Top10artists from "./components/Top 10/top10"
@@ -47,8 +49,10 @@ class App extends Component {
 
         <Navbar />
         <LandingSection />
-        {this.state.loggedIn && <Dashboard />}
+        {this.state.loggedIn && <Dashboard/>}
         {!this.state.loggedIn && <DashboardBlurred />}
+        {!this.state.loggedIn && <Section1 />}
+        {!this.state.loggedIn && <Section2 />}
         {this.state.loggedIn && <Top10artists />}
         <Footer />
       </div>

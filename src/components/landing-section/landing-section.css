@@ -17,6 +17,10 @@
     margin-top: 80px;
 }
 
+.front-section Button:hover{
+    padding: 12px 12px;
+}
+
 .title-button-container {
     
     display: block;
@@ -53,6 +57,7 @@
     animation: Gradient 15s ease infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-decoration: underline;
 
 }
 

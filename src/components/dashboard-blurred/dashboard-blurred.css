@@ -1,3 +1,6 @@
+.dashboard{
+    display: none;
+}
 .test-blur {
     width: 100%;
     min-height: 225px;
@@ -70,3 +73,9 @@
         background-position: 0% 50%
     }
 }
+
+@media screen and (max-width: 960px) { 
+    .dashboard{
+        display: flex;
+        }
+    }
