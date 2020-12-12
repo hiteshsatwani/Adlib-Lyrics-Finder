@@ -7,7 +7,7 @@ class DashboardBlurred extends Component {
 
     render() {
         return (
-            <div className="dashboard" >
+            <div className="dashboard-blurred" >
 
                 <div className="test-blur">
                     <div className="no-blur">
