@@ -19,7 +19,7 @@ class Dashboard extends Component {
         this.state = {
             loggedIn: token ? true : false,
             nowPlaying: { name: 'Nothing Playing', albumArt: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', artist: 'Nothing Playing', albumName: 'None', artistId: '' },
-            yourPlaylists: { name: 'Nothing Yet', img: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri: '', name2: 'Nothing Yet', img2: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri2: '', name3: 'Nothing Yet', img3: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri3: '',name4: 'Nothing Yet', img4: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri4: '', name5: 'Nothing Yet', img5: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri5: '', name6: 'Nothing Yet', img6: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri6: ''},
+            yourPlaylists: { name: 'Nothing Yet', img: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri: '', name2: 'Nothing Yet', img2: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri2: '', name3: 'Nothing Yet', img3: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri3: '', name4: 'Nothing Yet', img4: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri4: '', name5: 'Nothing Yet', img5: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri5: '', name6: 'Nothing Yet', img6: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri6: '' },
             clicked: false
         }
         this.changeState = this.changeState.bind(this);
@@ -37,51 +37,51 @@ class Dashboard extends Component {
         }
     }
 
-    playAlbum(num){
-        var a = {context_uri: this.state.yourPlaylists.uri}
+    playAlbum(num) {
+        var a = { context_uri: this.state.yourPlaylists.uri }
         var aj = JSON.stringify(a)
         var ajj = JSON.parse(aj)
-        var b = {context_uri: this.state.yourPlaylists.uri2}
+        var b = { context_uri: this.state.yourPlaylists.uri2 }
         var bj = JSON.stringify(b)
         var bjj = JSON.parse(bj)
-        var c = {context_uri: this.state.yourPlaylists.uri3}
+        var c = { context_uri: this.state.yourPlaylists.uri3 }
         var cj = JSON.stringify(c)
         var cjj = JSON.parse(cj)
-        var d = {context_uri: this.state.yourPlaylists.uri4}
+        var d = { context_uri: this.state.yourPlaylists.uri4 }
         var dj = JSON.stringify(d)
         var djj = JSON.parse(dj)
-        var e = {context_uri: this.state.yourPlaylists.uri5}
+        var e = { context_uri: this.state.yourPlaylists.uri5 }
         var ej = JSON.stringify(e)
         var ejj = JSON.parse(ej)
-        var f = {context_uri: this.state.yourPlaylists.uri6}
+        var f = { context_uri: this.state.yourPlaylists.uri6 }
         var fj = JSON.stringify(f)
         var fjj = JSON.parse(fj)
-        
 
-        if(num === 1){
+
+        if (num === 1) {
             spotifyApi.play(ajj)
         }
 
-        if(num === 2){
+        if (num === 2) {
             spotifyApi.play(bjj)
         }
 
-        if(num === 3){
+        if (num === 3) {
             spotifyApi.play(cjj)
         }
 
-        if(num === 4){
+        if (num === 4) {
             spotifyApi.play(djj)
         }
 
-        if(num === 5){
+        if (num === 5) {
             spotifyApi.play(ejj)
         }
 
-        if(num === 6){
+        if (num === 6) {
             spotifyApi.play(fjj)
         }
-        
+
     }
 
 
@@ -113,8 +113,12 @@ class Dashboard extends Component {
         }
     }
 
-    nexttrack(){
+    nexttrack() {
         spotifyApi.skipToNext();
+    }
+
+    previoustrack() {
+        spotifyApi.skipToPrevious();
     }
 
     getAlbums() {
@@ -149,7 +153,7 @@ class Dashboard extends Component {
         setInterval(() => {
             spotifyApi.getMyCurrentPlaybackState()
                 .then((response) => {
-                    if(response.item.name !== this.state.nowPlaying.name){
+                    if (response.item.name !== this.state.nowPlaying.name) {
                         this.setState({
                             nowPlaying: {
                                 name: response.item.name,
@@ -163,26 +167,27 @@ class Dashboard extends Component {
 
                         this.findLyrics()
                     }
-                    
+
                 })
 
         }, 5000);
     }
 
     findLyrics() {
-       
-        $.get("https://api.lyrics.ovh/v1/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
-        function (data) {
-            // eslint-disable-next-line
-            if (document.getElementById("output").innerHTML !== data.lyrics.replace(new RegExp("\n", "g"), "<br>")) {
-                if (data.lyrics !== "") {
-                    // eslint-disable-next-line
-                    document.getElementById("output").innerHTML = data.lyrics.replace(new RegExp("\n", "g"), "<br>")
-                    console.log("success")
+
+        $.get("http://localhost:3002/api/lyrics/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
+        
+            function (data) {
+                // eslint-disable-next-line
+                if (document.getElementById("output").innerHTML !== data.replace(new RegExp("\n", "g"), "<br>")) {
+                    if (data !== "") {
+                        // eslint-disable-next-line
+                        document.getElementById("output").innerHTML = data.replace(new RegExp("\n", "g"), "<br>")
+                        console.log("success")
+                    }
                 }
             }
-        }
-    )
+        )
     }
 
 
@@ -197,7 +202,7 @@ class Dashboard extends Component {
                             <img src={this.state.nowPlaying.albumArt} alt="" />
                         </div>
                         <div className="controls">
-                            <i className="fa fa-step-backward fa-2x"></i>
+                            <i className="fa fa-step-backward fa-2x" onClick={() => this.previoustrack()}></i>
                             <i className={this.state.clicked ? 'fas fa-pause-circle fa-2x fa-inverse' : 'fas fa-play-circle fa-2x fa-inverse'} onClick={() => this.toggleplay()}></i>
                             <i className="fa fa-step-forward fa-2x" onClick={() => this.nexttrack()}></i>
                         </div>
@@ -226,11 +231,11 @@ class Dashboard extends Component {
                                     <img src={this.state.yourPlaylists.img4} onClick={() => this.playAlbum(4)} alt="playlist"></img>
                                     <h2>{this.state.yourPlaylists.name4}</h2>
                                 </li>
-                                <li className ="nomobile">
+                                <li className="nomobile">
                                     <img src={this.state.yourPlaylists.img5} onClick={() => this.playAlbum(5)} alt="playlist"></img>
                                     <h2>{this.state.yourPlaylists.name5}</h2>
                                 </li>
-                                <li className ="nomobile">
+                                <li className="nomobile">
                                     <img src={this.state.yourPlaylists.img6} onClick={() => this.playAlbum(6)} alt="playlist"></img>
                                     <h2>{this.state.yourPlaylists.name6}</h2>
                                 </li>
