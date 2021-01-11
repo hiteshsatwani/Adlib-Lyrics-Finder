@@ -96,9 +96,9 @@
     }
 
     .navbar-logo { 
-        position: absolute;
+        position: fixed;
         top: 0;
-        left: -20px;
+        padding-right: 100px;
         transform: translate(25%, 50%);
         margin-top: -15px;
     }
@@ -112,6 +112,8 @@
         font-size: 1.8rem;
         cursor: pointer;
         margin-top: 15px;
+        padding-right: 38px;
+        display: none;
     }
 
     .fa-times {
@@ -139,6 +141,7 @@
 
     .login-button-nav {
         margin-left: 20px;
+        display: none;
     }
     
     .login-button-nav Button {
@@ -149,6 +152,7 @@
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
+    display: none;
     }
 
 }
