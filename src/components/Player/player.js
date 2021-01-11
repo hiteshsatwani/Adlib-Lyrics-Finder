@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
-import './dashboard.css';
+    import React, { Component } from 'react';
+import './player.css';
 import SpotifyWebApi from 'spotify-web-api-js';
 import $ from "jquery"
 
-
 const spotifyApi = new SpotifyWebApi();
 
-
-class Dashboard extends Component {
+class Player extends Component {
     constructor() {
         super();
         const params = this.getHashParams();
@@ -21,6 +19,7 @@ class Dashboard extends Component {
             nowPlaying: { name: 'Nothing Playing', albumArt: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', artist: 'Nothing Playing', albumName: 'None', artistId: '' },
             yourPlaylists: { name: 'Nothing Yet', img: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri: '', name2: 'Nothing Yet', img2: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri2: '', name3: 'Nothing Yet', img3: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri3: '', name4: 'Nothing Yet', img4: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri4: '', name5: 'Nothing Yet', img5: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri5: '', name6: 'Nothing Yet', img6: 'https://img.sheetmusic.direct/img/legacystructure/Global/placeholder.png', uri6: '' },
             clicked: false
+
         }
         this.changeState = this.changeState.bind(this);
     }
@@ -154,67 +153,95 @@ class Dashboard extends Component {
             spotifyApi.getMyCurrentPlaybackState()
                 .then((response) => {
                     if (response.item.name !== this.state.nowPlaying.name) {
-                        this.setState({
-                            nowPlaying: {
-                                name: response.item.name,
-                                artist: response.item.artists[0].name,
-                                albumArt: response.item.album.images[0].url,
-                                albumName: response.item.album.name,
-                                artistId: response.item.artists[0].id,
-                                clicked: response.is_playing
-                            }
-                        })
+                        try {
+                            this.setState({
+                                nowPlaying: {
+                                    name: response.item.name,
+                                    artist: response.item.artists[0].name,
+                                    albumArt: response.item.album.images[0].url,
+                                    albumName: response.item.album.name,
+                                    artistId: response.item.artists[0].id,
+                                },
+                        
+                            })
+                            this.findLyrics()
+                        } catch (err) {
+                            this.setState({
+                                nowPlaying: {
+                                    name: response.item.name,
+                                    artist: response.item.artists[0].name,
+                                    albumArt: "https://i.pinimg.com/736x/ae/dc/45/aedc457b2cdad874b38dc69015e561ee.jpg",
+                                    albumName: response.item.album.name,
+                                },
+                    
+                            })
 
-                        this.findLyrics()
+                            this.findLyrics()
+                        }
                     }
 
                 })
 
-        }, 5000);
+        }  , 7000); 
     }
 
     findLyrics() {
 
-        $.get("http://localhost:3002/api/lyrics/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
-        
+        $.get("https://lyrics-api-adlib.herokuapp.com/api/lyrics/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
+
             function (data) {
-                // eslint-disable-next-line
-                if (document.getElementById("output").innerHTML !== data.replace(new RegExp("\n", "g"), "<br>")) {
-                    if (data !== "") {
-                        // eslint-disable-next-line
                         document.getElementById("output").innerHTML = data.replace(new RegExp("\n", "g"), "<br>")
                         console.log("success")
                     }
-                }
-            }
         )
+    }
+
+    handleClick = () => {
+        this.setState({clicked: !this.state.clicked})
     }
 
 
     render() {
         return (
+            <div className="player" onLoad={() => this.getNowPlaying()}>
+                <div className="container-main" onLoad={() => this.getAlbums()}>
+                    <div className="background" style={{
 
-            <div className="dashboard" onLoad={() => this.getNowPlaying()}>
+                        backgroundImage: "url(" + this.state.nowPlaying.albumArt + ")",
 
-                <div className="leftside">
-                    <div className="songinfo">
-                        <div id="albumart">
-                            <img src={this.state.nowPlaying.albumArt} alt="" />
+                    }} ></div>
+                    <div style={{
+                        position: "absolute",
+                        top: "0", left: "0",
+                        height: "100%", width: "100%",
+                    }}>
+                        <div className="backsonginfo">
+                            <div className="songinfop">
+
+                                <div className="songwrapper">
+                                    <div className="textplayer">
+                                        <h2>{this.state.nowPlaying.name}</h2>
+                                        <h3> {this.state.nowPlaying.artist} </h3>
+                                        <h3> {this.state.nowPlaying.albumName} </h3>
+                                    </div>
+                                </div>
+                                <div className="albumartplayer">
+                                    <img src={this.state.nowPlaying.albumArt} alt="" />
+                                </div>
+                            </div>
                         </div>
-                        <div className="controls">
-                            <i className="fa fa-step-backward fa-2x" onClick={() => this.previoustrack()}></i>
-                            <i className={this.state.clicked ? 'fas fa-pause-circle fa-2x fa-inverse' : 'fas fa-play-circle fa-2x fa-inverse'} onClick={() => this.toggleplay()}></i>
-                            <i className="fa fa-step-forward fa-2x" onClick={() => this.nexttrack()}></i>
+                        <div className="lyricsplayer">
+                            <div id="output" className="outputlyricstextp">Nothing Yet</div>
                         </div>
-                        <h2>{this.state.nowPlaying.name}</h2>
-                        <h3> {this.state.nowPlaying.artist} </h3>
-                        <h3> {this.state.nowPlaying.albumName} </h3>
-                    </div>
-                    <div className="recommended" onLoad={() => this.getAlbums()}>
-                        <h2> Your Playlists </h2>
-                        <h4> Click To Play </h4>
-                        <div className="albumlist">
+                        <div className="menu-icon2" onClick={this.handleClick} >
+                            <i className={this.state.clicked ? 'fas fa-times fa-2x' : 'fas fa-bars fa-2x'}></i>
+                        </div>
+                        <div className={this.state.clicked ? 'playlist active' : 'playlist-menu'}>
                             <ul className="albumgrid">
+                                <li>
+                                    <h3> Your Playlists </h3>
+                                    <h4>Click to Play</h4>
+                                </li>
                                 <li>
                                     <img src={this.state.yourPlaylists.img} onClick={() => this.playAlbum(1)} alt="playlist"></img>
                                     <h2>{this.state.yourPlaylists.name}</h2>
@@ -243,20 +270,10 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="rightside">
-                    <div className="lyrics">
-                        {/* eslint-disable-next-line */}
-                        <a id="dashboard"><h2> Lyrics </h2></a>
-                        <div id="output" className="outputlyricstext">Nothing Yet</div>
-                    </div>
-                </div>
             </div>
-
-
-
         )
     }
 }
 
 
-export default Dashboard
+export default Player
