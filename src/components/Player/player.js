@@ -190,6 +190,7 @@ class Player extends Component {
         $.get("https://lyrics-api-adlib.herokuapp.com/api/lyrics/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
 
             function (data) {
+                // eslint-disable-next-line
                         document.getElementById("output").innerHTML = data.replace(new RegExp("\n", "g"), "<br>")
                         console.log("success")
                     }
