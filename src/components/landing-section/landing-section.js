@@ -42,7 +42,7 @@ class LandingSection extends Component {
                 </div>
                 <div className="mobile-button">
                 {this.state.loggedIn && <Button ><a href="#dashboard"> Go To Dashboard </a> </Button>}
-                {!this.state.loggedIn && <a href="https://spotify-auth-adlib.herokuapp.com/login"><Button>< i className="fab fa-spotify"></i> Login To Spotify </Button></a>}
+                {!this.state.loggedIn && <a href="http://15.185.198.113:3000/login"><Button>< i className="fab fa-spotify"></i> Login To Spotify </Button></a>}
                 </div>
                 </div>
             </div>
