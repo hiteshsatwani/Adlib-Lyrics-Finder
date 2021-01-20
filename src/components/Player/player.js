@@ -187,7 +187,7 @@ class Player extends Component {
 
     findLyrics() {
 
-        $.get("https://lyrics-api-adlib.herokuapp.com/api/lyrics/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
+        $.get("http://15.185.198.113:6000/api/lyrics/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
 
             function (data) {
                 // eslint-disable-next-line
