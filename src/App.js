@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import LandingSection from "./components/landing-section/landing-section"
-import Section1 from "./components/section1/section-1"
-import Section2 from "./components/section2/section-2"
 import Navbar from "./components/Navbar/Navbar"
 import './App.css';
 import Player from './components/Player/player'
