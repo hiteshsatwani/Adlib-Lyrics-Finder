@@ -187,7 +187,7 @@ class Player extends Component {
 
     findLyrics() {
 
-        $.get("http://15.185.198.113:7789/api/lyrics/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
+        $.get("https://lyrics-api.hiteshsatwani1.repl.co/api/lyrics/" + this.state.nowPlaying.artist + "/" + this.state.nowPlaying.name,
 
             function (data) {
                 // eslint-disable-next-line

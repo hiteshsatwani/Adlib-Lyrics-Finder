@@ -15,7 +15,7 @@ class Section1 extends Component {
                     <h4>Get lyrics for any song while listening to it on Spotify.</h4>
                     <h4>AdLib uses public resources to get the lyrics to the </h4>
                     <h4>song you are currently listening to on Spotify.</h4>
-                    <a href="http://15.185.198.113:3000/login"> <Button className='btn--primary'> < i className="fab fa-spotify"></i>Get Lyrics Now</Button></a>
+                    <a href="https://spotify-auth-adlib.herokuapp.com/login"> <Button className='btn--primary'> < i className="fab fa-spotify"></i>Get Lyrics Now</Button></a>
                 </div>
                 
                 <div className="image" >

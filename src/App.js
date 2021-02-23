@@ -47,8 +47,6 @@ class App extends Component {
         {!this.state.loggedIn && <LandingSection />}
         
         {this.state.loggedIn && <Player />}
-        {!this.state.loggedIn && <Section1 />}
-        {!this.state.loggedIn && <Section2 />}
       </div>
 
     );
